@@ -1,0 +1,197 @@
+:root {
+	--background-color-body: hsl(217, 54%, 11%);
+	--background-color-card: hsl(216, 50%, 16%);
+	--very-dark-blue: hsl(215, 32%, 27%);
+
+	--soft-blue: hsl(215, 51%, 70%);
+	--cyan: hsl(178, 100%, 50%);
+}
+
+*,
+*:after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Outfit', sans-serif;
+	font-size: 16px;
+  min-height: 100vh;
+	background-color: var(--background-color-body);
+	color: var(--soft-blue);
+}
+
+main {
+	max-width: 335px; /*375px - 20px of margin on each side*/
+	padding: 20px;
+	/* max-height: 540px; */
+  /* height: auto; */
+	background-color: var(--background-color-card);
+	border-radius: 20px;
+}
+
+main .product-img {
+	/* max-width: 100%; */
+	width: 295px;
+	height: auto;
+	height: 295px;
+	margin-bottom: 25px;
+  
+  position: relative;
+  cursor: pointer;
+}
+
+.product-img img{
+  width: inherit;
+  height: inherit;
+  border-radius: 10px;
+}
+
+main .overlay:hover{
+  opacity: 1;
+  border-radius: 10px;
+}
+
+main .overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  /* width: 100%; */
+  /* height: 100%; */
+  background-color: rgba(0, 255, 247, 0.5);
+  background-image: url(./images/icon-view.svg);
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y:  center;
+  z-index: 20;
+
+  transition: all .3s ease-in-out;
+
+}
+
+main h1 {
+	color: white;
+	font-size: 23px;
+	font-weight: 600;
+	margin-bottom: 20px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+main h1:hover{
+  color: var(--cyan);
+}
+
+main > p{
+	line-height: 1.7;
+	margin-bottom: 20px;
+  font-weight: 300;
+}
+
+main .data {
+	display: flex;
+	justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.data .currency {
+	color: cyan;
+	font-weight: 600;
+	position: relative;
+  margin-left: 16px;
+}
+
+/* ? The two following rules are used to display the ethereum currency logo besides the currency element, using the pseudo-element before and giving it an absolute position, they I moved it to the left the corresponding distance that the currency element was moved just before(thanks to margin-left*/
+
+/* .data .currency:before {
+  position: absolute;
+  left: -16px;
+	content: '';
+  content: url("data:image/svg+xml; utf8,  <svg width='11' height='18' xmlns='http://www.w3.org/2000/svg'><path d='M11 10.216 5.5 18 0 10.216l5.5 3.263 5.5-3.262ZM5.5 0l5.496 9.169L5.5 12.43 0 9.17 5.5 0Z' fill='#00FFF8'/></svg>");
+  display: inline-block;
+  background-image: url(./images/icon-ethereum.svg);
+  background-size: 11px 18px;
+  width: 11px;
+  height: auto;
+} */
+
+.data .currency:before {
+  position: absolute;
+  left:  -16px;
+	display: inline-block;
+	content: '';
+	background-image: url('./images/icon-ethereum.svg');
+	background-size: 11px 18px;
+	width: 11px;
+	height: 18px;
+}
+
+.data .time-left {
+	font-weight: 400;
+	position: relative;
+}
+
+.data .time-left:before {
+  position: absolute;
+  left:  -24px;
+  top: 50%;
+  transform: translateY(-50%);
+	display: inline-block;
+	content: '';
+	background-image: url('./images/icon-clock.svg');
+	background-size: 17px 17px;
+	width: 17px;
+	height: 17px;
+}
+
+footer{
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--very-dark-blue);
+  padding-top: 15px;
+  gap: 15px;
+  
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+footer img{
+  width: 35px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+footer p{
+  margin: 0;
+  line-height: 1;
+}
+
+footer span{
+  color: white;
+cursor: pointer;
+  transition: all .3s ease;
+}
+
+footer span:hover{
+  color: var(--cyan);
+}
+
+
+
+.attribution {
+	position: absolute;
+	bottom: 0;
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
